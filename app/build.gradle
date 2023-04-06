@@ -50,7 +50,7 @@ dependencies {
     implementation "com.jakewharton.rxrelay2:rxrelay:2.0.0"
 
     implementation "com.bluelinelabs:conductor:2.1.4"
-
+    implementation 'com.google.android.material:material:1.2.0'
 
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
 
