@@ -14,11 +14,13 @@ public class ApplicationModule {
 
     //this will have a constructor that will takes an instance of an Android Application
     ApplicationModule(Application application) {
+
         this.application = application;
     }
 
     @Provides
     Context provideApplicationContext(){
+
         return application;
     }
 
