@@ -2,9 +2,12 @@ package io.kanakadhara.androiddagger.base;
 
 import android.app.Activity;
 
+import dagger.Binds;
 import dagger.Module;
+import dagger.Provides;
 import dagger.android.AndroidInjector;
 import dagger.multibindings.ClassKey;
+import dagger.multibindings.IntoMap;
 import io.kanakadhara.androiddagger.home.MainActivity;
 import io.kanakadhara.androiddagger.home.MainActivityComponent;
 
@@ -34,10 +37,8 @@ public abstract class ActivityBindingModule {
     abstract AndroidInjector.Factory<? extends Activity> provideMainActivityInjector(MainActivityComponent.Builder builder);
 */
 
-/*
-    @ClassKey(MainActivity.class)
-    abstract AndroidInjector.Factory<? extends Activity> provideMainActivityInjector(MainActivityComponent.Builder builder);*/
-
+    @Binds
+    @IntoMap
     @ClassKey(MainActivity.class)
     abstract AndroidInjector.Factory<?> provideMainActivityInjector(MainActivityComponent.Builder builder);
 
