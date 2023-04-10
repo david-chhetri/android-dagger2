@@ -2,11 +2,9 @@ package io.kanakadhara.androiddagger.base;
 
 import android.app.Activity;
 
-import dagger.Binds;
 import dagger.Module;
-import dagger.android.ActivityKey;
 import dagger.android.AndroidInjector;
-import dagger.multibindings.IntoMap;
+import dagger.multibindings.ClassKey;
 import io.kanakadhara.androiddagger.home.MainActivity;
 import io.kanakadhara.androiddagger.home.MainActivityComponent;
 
@@ -18,20 +16,30 @@ import io.kanakadhara.androiddagger.home.MainActivityComponent;
  *  use @Binds, we define an abstract method and it will take the argument of that method and
  *  return it as the type of the method, kind of little shorthand
  *
+ *  https://stackoverflow.com/questions/60476663/dagger-android-activitykey-not-found-how-to-create-sub-components-explicitly
+ *  As this dagger 2.25.2 can not find dagger.android.ActivityKey, we use @ClassKey instead
  *
  */
+
+
+
 @Module(subcomponents = {
         MainActivityComponent.class,
 })
 public abstract class ActivityBindingModule {
 
-    @Binds
+   /* @Binds
     @IntoMap
     @ActivityKey(MainActivity.class)
     abstract AndroidInjector.Factory<? extends Activity> provideMainActivityInjector(MainActivityComponent.Builder builder);
+*/
 
+/*
+    @ClassKey(MainActivity.class)
+    abstract AndroidInjector.Factory<? extends Activity> provideMainActivityInjector(MainActivityComponent.Builder builder);*/
 
-
+    @ClassKey(MainActivity.class)
+    abstract AndroidInjector.Factory<?> provideMainActivityInjector(MainActivityComponent.Builder builder);
 
 
 }
