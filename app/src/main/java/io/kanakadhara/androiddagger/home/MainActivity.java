@@ -1,8 +1,10 @@
-package io.kanakadhara.androiddagger;
+package io.kanakadhara.androiddagger.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import io.kanakadhara.androiddagger.R;
 
 public class MainActivity extends AppCompatActivity {
 
